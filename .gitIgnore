@@ -1,6 +1,6 @@
 /node_modules
 .env
-data.csv
+data
 dataCategory.csv
 prueba.csv
 categorias/prueba.csv
