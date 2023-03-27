@@ -24,12 +24,12 @@ const dateToday = (paramPosibleFecha, numeroHorasARestar)=>{
     let horasMenosHoras       = nowMenosHoras.getHours();
     let minutosMenosHoras     = ("0" + nowMenosHoras.getMinutes() ).slice(-2);                                      //Esto para que el formato de minuto sea "09" y no "9"
     let secondsMenosHoras     = ("0" + nowMenosHoras.getSeconds() ).slice(-2);
-    let horaMinutoMenosHoras  = " " + horas + ":" + minutos + ":" + seconds;
+    let horaMinutoMenosHoras  = " " + horasMenosHoras + ":" + minutosMenosHoras + ":" + secondsMenosHoras;
     let diaMenosHoras         = ("0" + nowMenosHoras.getDate()).slice(-2);                                          //Esto para que el formato de hora sea "09" y no "9"
     let anioMenosHoras        = nowMenosHoras.getFullYear();
     let mesMenosHoras         = nowMenosHoras.getMonth() + 1;
-    let hora_hoyMenosHoras    = dia + "/" + mes + "/" + anio;
-    let dateMenosHoras        = hora_hoy + " : " + horaMinuto + " : " + secondsMenosHoras;
+    let hora_hoyMenosHoras    = diaMenosHoras + "/" + mesMenosHoras + "/" + anioMenosHoras;
+    let dateMenosHoras        = hora_hoyMenosHoras + " : " + horaMinutoMenosHoras + " : " + secondsMenosHoras;
     let completeDateMenosHoras = hora_hoyMenosHoras + " " + dateMenosHoras
     return {now, nowNumber, nowMenosHoras, horas, minutos, horaMinuto, dia, anio, mes, hora_hoy, date, completeDate, horasMenosHoras,minutosMenosHoras,secondsMenosHoras,horaMinutoMenosHoras,diaMenosHoras,anioMenosHoras,mesMenosHoras,hora_hoyMenosHoras,dateMenosHoras, completeDateMenosHoras}
     
@@ -85,8 +85,8 @@ const FilterByPromotionBucle = async(arrayARecorrer,arrayAPushearData, head)=>{
                     offer_id: pruebaTodosItems[indexChikito]?.offer_id,
                     meli_percentage: pruebaTodosItems[indexChikito]?.meli_percentage,
                     seller_percentage: pruebaTodosItems[indexChikito]?.seller_percentage,
-                    start_date: dateToday(pruebaTodosItems[indexChikito]?.start_date).date,
-                    end_date: dateToday(pruebaTodosItems[indexChikito]?.end_date).date,
+                    start_date: pruebaTodosItems[indexChikito]?.start_date,
+                    end_date: pruebaTodosItems[indexChikito]?.end_date,
                     Timestamp: dateToday(now).date,
                 });
             
