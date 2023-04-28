@@ -13,6 +13,8 @@ const Cofondeo  = async () => {
 
     const credenciales  = informationTokens;                                               //Credenciales permisos GooglSheet
     const googleId      = '16I4qzEas5EiPElDBmviYcN7r8IhvV_sB_CXmj8z37wI';                  //ID permisos GooglSheet
+    const googleID_AnalisisComercial = process.env.GOOGLE_ID_ANALISIS_COMERCIAL;
+
     let arrayContenedorCoFondeoTotal = []
     const tmp = {};                                                                         //Es un objeto vacío para asignarle todas las propiedades de la API
     try {
@@ -92,13 +94,15 @@ const Cofondeo  = async () => {
          /* Pusheamos la info al archivo CSV */
          console.log("Pusheando info al CSV");
          
-         const respuestaFinal  = await getDataCSV("arrayFinal");
-     
+        const respuestaArrays  = await getDataCSV("arrayFinal");
+        const respuestaFinal = respuestaArrays.reverse()
         console.log("Array final");
         console.log("Importando data a Sheet");
         console.log(respuestaFinal);
+
         //exportSheet(googleId,credenciales,'Prueba COL',arrayContenedorCoFondeoTotal)
         await exportSheet(googleId,credenciales,'main',respuestaFinal)
+        //exportSheet(googleID_AnalisisComercial,credenciales,'Promotions',respuestaFinal)
         console.log("Finalizado la importación deñ data a Sheet");
 
     } catch (error) {

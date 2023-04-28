@@ -85,8 +85,8 @@ const FilterByPromotionBucle = async(arrayARecorrer,arrayAPushearData, head)=>{
                     offer_id: pruebaTodosItems[indexChikito]?.offer_id,
                     meli_percentage: pruebaTodosItems[indexChikito]?.meli_percentage,
                     seller_percentage: pruebaTodosItems[indexChikito]?.seller_percentage,
-                    start_date: pruebaTodosItems[indexChikito]?.start_date,
-                    end_date: pruebaTodosItems[indexChikito]?.end_date,
+                    start_date: pruebaTodosItems[indexChikito]?.start_date ? pruebaTodosItems[indexChikito]?.start_date : "",
+                    end_date: pruebaTodosItems[indexChikito]?.end_date ? pruebaTodosItems[indexChikito]?.end_date : "",
                     Timestamp: dateToday(now).date,
                 });
             
